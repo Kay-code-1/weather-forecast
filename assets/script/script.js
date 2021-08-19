@@ -11,15 +11,27 @@ function weatherCityName(){
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            console.log(data);    
             let locNameEl = document.getElementById("location-name");
+            locNameEl.textContent = "Weather for location: " + data.name;
+
             let currDayEl = document.getElementById("current-day");
             let weatherImgEl = document.getElementById("weather-pic");
-            let humidityEl = document.getElementById("humidity");
-            let windSpeedEl = document.getElementById("wind-speed");
-        
-            locNameEl.textContent = "Weather for location: " + data.name;
             //convert date to string - currDayEl.textContent = (data.dt).toDateString();
+            // weatherImgEl.addClass = data.weather.icon;
+
+            let humidityEl = document.getElementById("humidity");
+            humidityEl.textContent = "Humidity: " + data.main.humidity;
+            console.log(humidityEl);
+            
+            // let windSpeedEl = document.getElementById("wind-container");
+            // let windDetails = [data.wind].map((w) => {
+            //     return `<tr><td>${w.speed}</td><td>${w.deg}</td><td>${w.gust}</td>`;
+            // windSpeedEl.innerHTML = windDetails.join('');
+            // })
+
+        
+            console.log(windDetails);
         })
     .catch((err) => {
         console.log(err);
