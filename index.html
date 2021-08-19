@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="Description" content="Enter your description here" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
@@ -34,33 +37,52 @@
             aria-describedby="basic-addon2"
           />
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="lookup-weather" onclick="weatherCityName()" type="button">
+            <button
+              class="btn btn-outline-secondary"
+              id="lookup-weather"
+              onclick="weatherCityName()"
+              type="button"
+            >
               Search
             </button>
           </div>
         </div>
       </div>
       <div class="container">
-          <div class="container-fluid current-weather">
+        <div class="current-weather">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between">
               <div id="location-name"></div>
               <div id="current-day"></div>
-              <div id="weather-pic"></div>
-              <div id="humidity"></div>
-              <div id="wind-container">
-                  <div id="speed"></div>
-                  <div id="gust"></div>
-                  <div id="deg"></div>
-              </div>
-              <div id="uv-index"></div>
-          </div>
+            </div>
 
-          <div class="location future-weather"></div>
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <div class="temp-icon">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0">
+                        <img id="weather-icon" />
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <div id="temperature"></div>
+                        <div id="weather-desc"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-3 p-4">
+                  <div id="humidity"></div>
+                  <div id="wind-speed"></div>
+                  <div id="uv-index"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="./assets/script/script.js"></script>
   </body>
 </html>

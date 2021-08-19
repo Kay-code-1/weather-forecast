@@ -1,13 +1,33 @@
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  font-size: 62.5%;
 }
 
 .side-panel {
-    width: 30%;
+  width: 30%;
 }
 
 .current-weather {
-    width: 70%;
-    font-size: 20px;
-    font-weight: 800;
+  width: 70%;
+  font-size: 1.4rem;
+}
+
+.card .temp-icon {
+  display: flex;
+  align-items: center;
+}
+
+.temp-icon #weather-icon {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.temp-icon #temperature {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.temp-icon #temperature::after {
+  content: "\2109";
 }
