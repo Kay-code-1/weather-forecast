@@ -31,3 +31,7 @@ body {
 .temp-icon #temperature::after {
   content: "\2109";
 }
+
+#weather-card {
+    visibility: hidden;
+}
