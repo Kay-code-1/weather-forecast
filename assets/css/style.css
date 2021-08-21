@@ -4,12 +4,28 @@ body {
   font-size: 62.5%;
 }
 
+.container .left-panel {
+  width: 80%;
+}
+
+.container .right-panel {
+  padding: 4px;
+}
+
+.right-panel .shistory-item li {
+  font-size: 1.4rem;
+}
+.right-panel .card .card-body {
+  height: 490px;
+  overflow-y: auto;
+}
+
 .search-panel {
-  width: 30%;
+  width: 50%;
 }
 
 .current-weather {
-  width: 70%;
+  width: 86%;
   font-size: 1.4rem;
 }
 
@@ -38,8 +54,7 @@ body {
 
 .future-weather {
   margin-top: 20px;
-  width: 70%;
-  display: inline-flexbox;
+  display: inline-box;
   font-size: 1.5rem;
   visibility: hidden;
 }
@@ -66,7 +81,7 @@ body {
 
 /* Color codes for highlighting UV index */
 
-.green-Uvi {
+.green-uvi {
   background-color: greenyellow;
 }
 

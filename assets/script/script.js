@@ -10,16 +10,21 @@ let uvIndexEl = document.getElementById("uv-index");
 
 function weatherCityName() {
   let locationEl = document.getElementById("location-input");
-  let weatherCardEl = document.getElementById("weather-card");
+  storeLocally(locationEl.value);
+  getSearchHistory();
+  getWeatherByName(locationEl.value);
+}
 
+function getWeatherByName(name) {
   const current =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    locationEl.value +
+    name +
     "&appid=" +
     APIKey +
     "&units=imperial";
   const weatherIcon = "https://openweathermap.org/img/wn/";
 
+  let weatherCardEl = document.getElementById("weather-card");
   fetch(current)
     .then(function (response) {
       if (response.status !== 200) {
@@ -74,7 +79,6 @@ function weatherCityName() {
 
       getUVIndexandForecast(data.coord.lat, data.coord.lon);
     })
-
     .catch(function (err) {
       console.log(err);
     });
@@ -166,8 +170,8 @@ function getUVIndexandForecast(lat, lon) {
 //Display and Highlight UV Index based on intensity
 function highlightUVIndex(uviData) {
   uvIndexEl.textContent = "UV Index: " + uviData;
-  // let uvi = data.current.uvi;
-  if (uviData >= 0 || uviData <= 3) {
+  uvIndexEl.className = "";
+  if (uviData <= 3) {
     uvIndexEl.classList.add("green-uvi");
   }
   if (uviData > 3 && uviData <= 6) {
@@ -183,4 +187,38 @@ function highlightUVIndex(uviData) {
   return;
 }
 
-// }
+function storeLocally(name) {
+  var locations = JSON.parse(localStorage.getItem("weather"));
+
+  if (locations) {
+    if (locations.indexOf(name) === -1) {
+      locations.push(name);
+      localStorage.setItem("weather", JSON.stringify(locations));
+    }
+  } else {
+    localStorage.setItem("weather", JSON.stringify([name]));
+  }
+}
+
+function getSearchHistory() {
+  var sHistory = document.querySelector(".shistory-item");
+  var locations = JSON.parse(localStorage.getItem("weather"));
+  var locListEl = document.createElement("ul");
+  sHistory.innerHTML = "";
+  for (let i = 0; i < locations.length; i++) {
+    var itemEl = document.createElement("li");
+    itemEl.textContent = locations[i];
+    itemEl.setAttribute(
+      "onclick",
+      "getWeatherByName('" + locations[i] + "')"
+    );
+    itemEl.style.cursor = "pointer";
+
+    locListEl.appendChild(itemEl);
+  }
+  sHistory.appendChild(locListEl);
+}
+
+window.addEventListener("DOMContentLoaded", function (event) {
+  getSearchHistory();
+});
