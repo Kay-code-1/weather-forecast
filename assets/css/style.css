@@ -4,7 +4,7 @@ body {
   font-size: 62.5%;
 }
 
-.side-panel {
+.search-panel {
   width: 30%;
 }
 
@@ -33,5 +33,51 @@ body {
 }
 
 #weather-card {
-    visibility: hidden;
+  visibility: hidden;
+}
+
+.future-weather {
+  margin-top: 20px;
+  width: 70%;
+  display: inline-flexbox;
+  font-size: 1.5rem;
+  visibility: hidden;
+}
+
+.future-weather h4 {
+  text-decoration: underline;
+}
+
+/* .day-weather {
+  border: 1px solid rgb(195, 184, 184);
+} */
+
+.forecast-measure::after {
+  content: "\2109";
+}
+
+.future-weather .conditions {
+  font-size: 15px;
+}
+
+.future-weather .desc {
+  font-size: 20px;
+}
+
+/* Color codes for highlighting UV index */
+
+.green-Uvi {
+  background-color: greenyellow;
+}
+
+.yellow-uvi {
+  background-color: yellow;
+}
+
+.orange-uvi {
+  background-color: orange;
+}
+
+.red-uvi {
+  background-color: orangered;
 }

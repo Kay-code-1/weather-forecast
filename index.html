@@ -20,35 +20,35 @@
     <title>Weather Forecast</title>
   </head>
   <body>
-    <header>
+    <header class="container">
       <h1>Weather Forecast of the day!</h1>
       <p class="location"></p>
     </header>
 
     <div class="main">
-      <div class="side-panel">
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="location-input"
-            placeholder="Lookup for Location"
-            aria-label="Lookup for Location"
-            aria-describedby="basic-addon2"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary"
-              id="lookup-weather"
-              onclick="weatherCityName()"
-              type="button"
-            >
-              Search
-            </button>
+      <div class="container">
+        <div class="search-panel">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="location-input"
+              placeholder="Lookup for Location"
+              aria-label="Lookup for Location"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                id="lookup-weather"
+                onclick="weatherCityName()"
+                type="button"
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container">
         <div class="current-weather" id="weather-card">
           <div class="card">
             <div class="card-header d-flex justify-content-between">
@@ -75,16 +75,26 @@
                   <div id="humidity"></div>
                   <div id="wind-speed"></div>
                   <div id="uv-index"></div>
-                  <div id="latitude">Latitude: </div>
-                  <div id="longitude">Longitude: </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="future-weather">
+          <h4>5-Day Forecast</h4>
+          <div class="row">
+            <div class="col-2 card" id="nextday1"></div>
+            <div class="col-2 card ml-1" id="nextday2"></div>
+            <div class="col-2 card ml-1" id="nextday3"></div>
+            <div class="col-2 card ml-1" id="nextday4"></div>
+            <div class="col-2 card ml-1" id="nextday5"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container prev-search">
+          <h2>Search history</h2>
       </div>
     </div>
-    
 
     <script src="./assets/script/script.js"></script>
   </body>
